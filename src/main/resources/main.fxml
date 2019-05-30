@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="cn.edu.nchu.stu.Main"
+           prefHeight="400.0" prefWidth="600.0">
+
+    <!-- 主菜单 -->
+    <HBox fx:id="menuPanel" alignment="CENTER">
+        <VBox alignment="CENTER" spacing="20">
+            <Button text="办理借书证" onAction="#locateToStudentCreationPanel"/>
+            <Button text="查询书籍" onAction="#locateToBookSearchPanel"/>
+            <Button text="借书" onAction="#locateToBookBorrowPanel"/>
+            <Button text="还书" onAction="#locateToBookReturnPanel"/>
+            <Button text="缴纳罚款" onAction="#locateToFinePaymentPanel"/>
+        </VBox>
+    </HBox>
+
+    <!-- 借书证办理界面 -->
+    <HBox fx:id="studentCreationPanel" alignment="CENTER" visible="false">
+        <VBox alignment="CENTER">
+            <GridPane>
+                <Label GridPane.columnIndex="0" GridPane.rowIndex="0" text="姓名"/>
+                <TextField GridPane.columnIndex="1" GridPane.rowIndex="0" fx:id="nameTextField"/>
+                <Label GridPane.columnIndex="0" GridPane.rowIndex="1" text="系别"/>
+                <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" fx:id="departmentTextField"/>
+                <Label GridPane.columnIndex="0" GridPane.rowIndex="2" text="专业"/>
+                <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" fx:id="majorTextField"/>
+                <Label GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.columnSpan="2" fx:id="createResultLabel" style="-fx-text-fill: red"/>
+                <Button GridPane.columnIndex="0" GridPane.rowIndex="4" text="取消" onAction="#locateBack"/>
+                <Button GridPane.columnIndex="1" GridPane.rowIndex="4" text="确认" fx:id="createStudentButton" onAction="#createStudent"/>
+            </GridPane>
+        </VBox>
+    </HBox>
+
+    <!-- 书籍查询界面 -->
+    <VBox fx:id="bookSearchPanel" visible="false" alignment="CENTER" onKeyPressed="#locateBackMenu">
+        <TextField fx:id="keywordTextField" onKeyReleased="#refreshSearchResult"/>
+        <TableView fx:id="searchResultTableView">
+            <columns>
+                <TableColumn text="书籍编号">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="id"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="书名">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="title"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="出版社">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="press"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="ISBN">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="isbn"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="作者">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="author"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="类别">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="klass"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="出版日期">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="publicationDate"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="所在位置">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="location"/>
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+    </VBox>
+
+    <!-- 借书界面 -->
+    <HBox fx:id="bookBorrowPanel" alignment="CENTER" visible="false">
+        <VBox alignment="CENTER">
+            <GridPane>
+                <Label GridPane.columnIndex="0" GridPane.rowIndex="0" text="借书证号"/>
+                <TextField GridPane.columnIndex="1" GridPane.rowIndex="0" fx:id="borrowBookStudentIdTextField"/>
+                <Label GridPane.columnIndex="0" GridPane.rowIndex="1" text="书籍编号"/>
+                <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" fx:id="borrowBookIdTextField"/>
+                <Label GridPane.columnIndex="0" GridPane.rowIndex="2" text="已借书本数"/>
+                <Label GridPane.columnIndex="1" GridPane.rowIndex="2" fx:id="borrowedNumberLabel"/>
+                <Label GridPane.columnIndex="0" GridPane.rowIndex="3" text="还可借书数"/>
+                <Label GridPane.columnIndex="1" GridPane.rowIndex="3" fx:id="remainingBorrowQuotaLabel"/>
+                <Label GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.columnSpan="2" fx:id="borrowResultLabel" style="-fx-text-fill: red"/>
+                <Button GridPane.columnIndex="0" GridPane.rowIndex="5" text="取消" onAction="#locateBack"/>
+                <Button GridPane.columnIndex="1" GridPane.rowIndex="5" text="确认" fx:id="borrowBookButton" onAction="#borrowBook"/>
+            </GridPane>
+        </VBox>
+    </HBox>
+
+    <!-- 还书界面 -->
+    <HBox fx:id="bookReturnPanel" alignment="CENTER" visible="false">
+        <VBox alignment="CENTER">
+            <GridPane>
+                <Label GridPane.columnIndex="0" GridPane.rowIndex="0" text="书籍编号"/>
+                <TextField GridPane.columnIndex="1" GridPane.rowIndex="0" fx:id="returnBookIdTextField"/>
+                <Label GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.columnSpan="2" fx:id="returnResultLabel" style="-fx-text-fill: red"/>
+                <Button GridPane.columnIndex="0" GridPane.rowIndex="3" text="取消" onAction="#locateBack"/>
+                <Button GridPane.columnIndex="1" GridPane.rowIndex="3" text="确认" fx:id="returnBookButton" onAction="#returnBook"/>
+            </GridPane>
+        </VBox>
+    </HBox>
+
+    <!-- 缴纳罚款 -->
+    <HBox fx:id="finPaymentPanel" alignment="CENTER" visible="false">
+        <VBox alignment="CENTER">
+            <GridPane>
+                <Label GridPane.columnIndex="0" GridPane.rowIndex="0" text="借书证号"/>
+                <TextField GridPane.columnIndex="1" GridPane.rowIndex="0" fx:id="finePaymentStudentIdTextField"/>
+                <Label GridPane.columnIndex="0" GridPane.rowIndex="1" text="罚款"/>
+                <Label GridPane.columnIndex="1" GridPane.rowIndex="1" fx:id="fineLabel"/>
+                <Label GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.columnSpan="2" fx:id="finePaymentResultLabel" style="-fx-text-fill: red"/>
+                <Button GridPane.columnIndex="0" GridPane.rowIndex="3" text="取消" onAction="#locateBack"/>
+                <Button GridPane.columnIndex="1" GridPane.rowIndex="3" text="确认" fx:id="payFineButton" onAction="#payFine"/>
+            </GridPane>
+        </VBox>
+    </HBox>
+</StackPane>

@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="library_management@localhost">
+  <database-model serializer="dbm" dbms="MSSQL" family-id="MSSQL" format-version="4.15">
+    <root id="1">
+      <ServerVersion>14.0.2014</ServerVersion>
+    </root>
+    <database id="2" parent="1" name="DingBao">
+      <ObjectId>10</ObjectId>
+      <Collation>Chinese_PRC_CI_AS</Collation>
+    </database>
+    <database id="3" parent="1" name="database1">
+      <ObjectId>7</ObjectId>
+      <Collation>Chinese_PRC_CI_AS</Collation>
+    </database>
+    <database id="4" parent="1" name="jxgl">
+      <ObjectId>5</ObjectId>
+      <Collation>Chinese_PRC_CI_AS</Collation>
+    </database>
+    <database id="5" parent="1" name="jxgl2">
+      <ObjectId>8</ObjectId>
+      <Collation>Chinese_PRC_CI_AS</Collation>
+    </database>
+    <database id="6" parent="1" name="library_management">
+      <ObjectId>9</ObjectId>
+      <Current>1</Current>
+      <Visible>1</Visible>
+      <Collation>Chinese_PRC_CI_AS</Collation>
+      <Fingerprint>9.43607/29661E1E-E3D5-452B-B6B9-1029E33DEE44@ZENGXIANGFEI</Fingerprint>
+    </database>
+    <database id="7" parent="1" name="master">
+      <ObjectId>1</ObjectId>
+      <Collation>Chinese_PRC_CI_AS</Collation>
+      <Fingerprint>9.43607/29661E1E-E3D5-452B-B6B9-1029E33DEE44@ZENGXIANGFEI</Fingerprint>
+    </database>
+    <database id="8" parent="1" name="model">
+      <ObjectId>3</ObjectId>
+      <Collation>Chinese_PRC_CI_AS</Collation>
+    </database>
+    <database id="9" parent="1" name="msdb">
+      <ObjectId>4</ObjectId>
+      <Collation>Chinese_PRC_CI_AS</Collation>
+    </database>
+    <database id="10" parent="1" name="teaching">
+      <ObjectId>6</ObjectId>
+      <Collation>Chinese_PRC_CI_AS</Collation>
+    </database>
+    <database id="11" parent="1" name="tempdb">
+      <ObjectId>2</ObjectId>
+      <Collation>Chinese_PRC_CI_AS</Collation>
+    </database>
+    <schema id="12" parent="6" name="INFORMATION_SCHEMA">
+      <ObjectId>3</ObjectId>
+    </schema>
+    <schema id="13" parent="6" name="db_accessadmin">
+      <ObjectId>16385</ObjectId>
+    </schema>
+    <schema id="14" parent="6" name="db_backupoperator">
+      <ObjectId>16389</ObjectId>
+    </schema>
+    <schema id="15" parent="6" name="db_datareader">
+      <ObjectId>16390</ObjectId>
+    </schema>
+    <schema id="16" parent="6" name="db_datawriter">
+      <ObjectId>16391</ObjectId>
+    </schema>
+    <schema id="17" parent="6" name="db_ddladmin">
+      <ObjectId>16387</ObjectId>
+    </schema>
+    <schema id="18" parent="6" name="db_denydatareader">
+      <ObjectId>16392</ObjectId>
+    </schema>
+    <schema id="19" parent="6" name="db_denydatawriter">
+      <ObjectId>16393</ObjectId>
+    </schema>
+    <schema id="20" parent="6" name="db_owner">
+      <ObjectId>16384</ObjectId>
+    </schema>
+    <schema id="21" parent="6" name="db_securityadmin">
+      <ObjectId>16386</ObjectId>
+    </schema>
+    <schema id="22" parent="6" name="dbo">
+      <ObjectId>1</ObjectId>
+      <IntrospectionTimestamp>2019-05-31.03:43:01.593</IntrospectionTimestamp>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="23" parent="6" name="guest">
+      <ObjectId>2</ObjectId>
+    </schema>
+    <schema id="24" parent="6" name="sys">
+      <ObjectId>4</ObjectId>
+    </schema>
+    <table id="25" parent="22" name="Book">
+      <ObjectId>114099447</ObjectId>
+      <CreatedTimestamp>2019-05-31.03:21:49.530</CreatedTimestamp>
+      <ModifiedTimestamp>2019-05-31.03:42:55.967</ModifiedTimestamp>
+    </table>
+    <table id="26" parent="22" name="BorrowRecord">
+      <ObjectId>146099561</ObjectId>
+      <CreatedTimestamp>2019-05-31.03:21:49.533</CreatedTimestamp>
+      <ModifiedTimestamp>2019-05-31.03:21:49.533</ModifiedTimestamp>
+    </table>
+    <table id="27" parent="22" name="Student">
+      <ObjectId>18099105</ObjectId>
+      <CreatedTimestamp>2019-05-31.03:21:49.400</CreatedTimestamp>
+      <ModifiedTimestamp>2019-05-31.03:21:49.903</ModifiedTimestamp>
+    </table>
+    <routine id="28" parent="22" name="borrowBook">
+      <ObjectId>498100815</ObjectId>
+      <SourceTextLength>848</SourceTextLength>
+      <CreatedTimestamp>2019-05-31.03:32:01.840</CreatedTimestamp>
+      <ModifiedTimestamp>2019-05-31.03:32:01.840</ModifiedTimestamp>
+      <RoutineKind>procedure</RoutineKind>
+      <RoutineType>proc</RoutineType>
+    </routine>
+    <routine id="29" parent="22" name="returnBook">
+      <ObjectId>514100872</ObjectId>
+      <SourceTextLength>930</SourceTextLength>
+      <CreatedTimestamp>2019-05-31.03:32:01.853</CreatedTimestamp>
+      <ModifiedTimestamp>2019-05-31.03:32:01.853</ModifiedTimestamp>
+      <RoutineKind>procedure</RoutineKind>
+      <RoutineType>proc</RoutineType>
+    </routine>
+    <routine id="30" parent="22" name="updateFine">
+      <ObjectId>530100929</ObjectId>
+      <SourceTextLength>381</SourceTextLength>
+      <CreatedTimestamp>2019-05-31.03:32:01.867</CreatedTimestamp>
+      <ModifiedTimestamp>2019-05-31.03:32:01.867</ModifiedTimestamp>
+      <RoutineKind>procedure</RoutineKind>
+      <RoutineType>proc</RoutineType>
+    </routine>
+    <column id="31" parent="25" name="id">
+      <Position>1</Position>
+      <SequenceIdentity>10000</SequenceIdentity>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="32" parent="25" name="title">
+      <Position>2</Position>
+      <DataType>varchar(128 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="33" parent="25" name="press">
+      <Position>3</Position>
+      <DataType>varchar(128 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="34" parent="25" name="isbn">
+      <Position>4</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="35" parent="25" name="author">
+      <Position>5</Position>
+      <DataType>varchar(32 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="36" parent="25" name="klass">
+      <Position>6</Position>
+      <DataType>varchar(128 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="37" parent="25" name="publicationDate">
+      <Position>7</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="38" parent="25" name="location">
+      <Position>8</Position>
+      <DataType>varchar(32 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="39" parent="25" name="PK__Book__3213E83F803456DF">
+      <Position>1</Position>
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <key id="40" parent="25" name="PK__Book__3213E83F803456DF">
+      <ObjectId>130099504</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2019-05-31.03:21:49.530</CreatedTimestamp>
+      <ModifiedTimestamp>2019-05-31.03:21:49.530</ModifiedTimestamp>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>PK__Book__3213E83F803456DF</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="41" parent="26" name="beginDate">
+      <Position>1</Position>
+      <DefaultConstraintName>DF__BorrowRec__begin__0A9D95DB</DefaultConstraintName>
+      <DefaultExpression>getdate()</DefaultExpression>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="42" parent="26" name="id">
+      <Position>2</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="43" parent="26" name="studentId">
+      <Position>3</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="44" parent="26" name="bookId">
+      <Position>4</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="45" parent="26" name="returned">
+      <Position>5</Position>
+      <DefaultConstraintName>DF__BorrowRec__retur__0B91BA14</DefaultConstraintName>
+      <DefaultExpression>0</DefaultExpression>
+      <DataType>bit|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="46" parent="26" name="PK__BorrowRe__3213E83F59F353CF">
+      <Position>1</Position>
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <key id="47" parent="26" name="PK__BorrowRe__3213E83F59F353CF">
+      <ObjectId>162099618</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2019-05-31.03:21:49.780</CreatedTimestamp>
+      <ModifiedTimestamp>2019-05-31.03:21:49.780</ModifiedTimestamp>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>PK__BorrowRe__3213E83F59F353CF</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="48" parent="26" name="fk_Student_id">
+      <ObjectId>210099789</ObjectId>
+      <CreatedTimestamp>2019-05-31.03:21:49.823</CreatedTimestamp>
+      <ModifiedTimestamp>2019-05-31.03:21:49.823</ModifiedTimestamp>
+      <ColNames>studentId</ColNames>
+      <RefTableId>18099105</RefTableId>
+      <RefSchemaName>dbo</RefSchemaName>
+      <RefTableName>Student</RefTableName>
+      <RefKeyName>PK__Student__3213E83F5D60BD0C</RefKeyName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="49" parent="26" name="fk_Book_id">
+      <ObjectId>226099846</ObjectId>
+      <CreatedTimestamp>2019-05-31.03:21:49.903</CreatedTimestamp>
+      <ModifiedTimestamp>2019-05-31.03:21:49.903</ModifiedTimestamp>
+      <ColNames>bookId</ColNames>
+      <RefTableId>114099447</RefTableId>
+      <RefSchemaName>dbo</RefSchemaName>
+      <RefTableName>Book</RefTableName>
+      <RefKeyName>PK__Book__3213E83F803456DF</RefKeyName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <default id="50" parent="26" name="DF__BorrowRec__begin__0A9D95DB">
+      <ObjectId>178099675</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2019-05-31.03:21:49.800</ModifiedTimestamp>
+      <ColNames>beginDate</ColNames>
+      <DefaultExpression>getdate()</DefaultExpression>
+    </default>
+    <default id="51" parent="26" name="DF__BorrowRec__retur__0B91BA14">
+      <ObjectId>194099732</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2019-05-31.03:21:49.813</ModifiedTimestamp>
+      <ColNames>returned</ColNames>
+      <DefaultExpression>0</DefaultExpression>
+    </default>
+    <column id="52" parent="27" name="name">
+      <Position>1</Position>
+      <DataType>varchar(32 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="53" parent="27" name="department">
+      <Position>2</Position>
+      <DataType>varchar(32 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="54" parent="27" name="major">
+      <Position>3</Position>
+      <DataType>varchar(32 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="55" parent="27" name="maxBorrowNumber">
+      <Position>4</Position>
+      <DefaultConstraintName>DF__Student__maxBorr__02FC7413</DefaultConstraintName>
+      <DefaultExpression>5</DefaultExpression>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="56" parent="27" name="id">
+      <Position>5</Position>
+      <SequenceIdentity>10000</SequenceIdentity>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="57" parent="27" name="fine">
+      <Position>6</Position>
+      <DefaultConstraintName>DF__Student__fine__03F0984C</DefaultConstraintName>
+      <DefaultExpression>0</DefaultExpression>
+      <DataType>smallmoney|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="58" parent="27" name="maxBorrowPeriodDay">
+      <Position>7</Position>
+      <DefaultConstraintName>DF__Student__maxBorr__04E4BC85</DefaultConstraintName>
+      <DefaultExpression>45</DefaultExpression>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="59" parent="27" name="finePerDay">
+      <Position>8</Position>
+      <DefaultConstraintName>DF__Student__finePer__05D8E0BE</DefaultConstraintName>
+      <DefaultExpression>0.02</DefaultExpression>
+      <DataType>smallmoney|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="60" parent="27" name="PK__Student__3213E83F5D60BD0C">
+      <Position>1</Position>
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <key id="61" parent="27" name="PK__Student__3213E83F5D60BD0C">
+      <ObjectId>34099162</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2019-05-31.03:21:49.413</CreatedTimestamp>
+      <ModifiedTimestamp>2019-05-31.03:21:49.413</ModifiedTimestamp>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>PK__Student__3213E83F5D60BD0C</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <default id="62" parent="27" name="DF__Student__maxBorr__02FC7413">
+      <ObjectId>50099219</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2019-05-31.03:21:49.437</ModifiedTimestamp>
+      <ColNames>maxBorrowNumber</ColNames>
+      <DefaultExpression>5</DefaultExpression>
+    </default>
+    <default id="63" parent="27" name="DF__Student__fine__03F0984C">
+      <ObjectId>66099276</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2019-05-31.03:21:49.450</ModifiedTimestamp>
+      <ColNames>fine</ColNames>
+      <DefaultExpression>0</DefaultExpression>
+    </default>
+    <default id="64" parent="27" name="DF__Student__maxBorr__04E4BC85">
+      <ObjectId>82099333</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2019-05-31.03:21:49.450</ModifiedTimestamp>
+      <ColNames>maxBorrowPeriodDay</ColNames>
+      <DefaultExpression>45</DefaultExpression>
+    </default>
+    <default id="65" parent="27" name="DF__Student__finePer__05D8E0BE">
+      <ObjectId>98099390</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2019-05-31.03:21:49.453</ModifiedTimestamp>
+      <ColNames>finePerDay</ColNames>
+      <DefaultExpression>0.02</DefaultExpression>
+    </default>
+    <argument id="66" parent="28" name="@studentId">
+      <Position>1</Position>
+      <DataType>int|0s</DataType>
+    </argument>
+    <argument id="67" parent="28" name="@bookId">
+      <Position>2</Position>
+      <DataType>int|0s</DataType>
+    </argument>
+    <argument id="68" parent="29" name="@bookId">
+      <Position>1</Position>
+      <DataType>int|0s</DataType>
+    </argument>
+    <argument id="69" parent="29" name="@fine">
+      <Position>2</Position>
+      <ArgumentDirection>O</ArgumentDirection>
+      <DataType>smallmoney|0s</DataType>
+    </argument>
+    <argument id="70" parent="30" name="@studentId">
+      <Position>1</Position>
+      <DataType>int|0s</DataType>
+    </argument>
+  </database-model>
+</dataSource>
