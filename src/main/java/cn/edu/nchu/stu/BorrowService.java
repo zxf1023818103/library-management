@@ -68,7 +68,8 @@ class BorrowService {
                 "        author varchar(32) not null,\n" +
                 "        klass varchar(128) not null,\n" +
                 "        publicationDate date not null,\n" +
-                "        location varchar(32) not null\n" +
+                "        location varchar(32) not null,\n" +
+                "        returned bit not null default 1\n" +
                 "    );");
         statement.execute("if object_id('BorrowRecord', 'u') is null\n" +
                 "    create table BorrowRecord (\n" +
@@ -102,6 +103,7 @@ class BorrowService {
                 "        --- 该书已借出\n" +
                 "        return -3;\n" +
                 "    insert into BorrowRecord (studentId, bookId) values (@studentId, @bookId);\n" +
+                "    update Book set returned = 0 where id = @bookId;\n" +
                 "    return 0;\n" +
                 "end;");
         statement.execute("if object_id('returnBook', 'p') is not null\n" +
@@ -119,6 +121,7 @@ class BorrowService {
                 "    select @borrowedDay = datediff(day, beginDate, getdate()) from BorrowRecord where studentId = @studentId and id = @bookId;\n" +
                 "    select @maxBorrowPeriodDay = maxBorrowPeriodDay from Student where id = @studentId;\n" +
                 "    update BorrowRecord set returned = 1 where bookId = @bookId and returned = 0;\n" +
+                "    update Book set returned = 1 where id = @bookId;\n" +
                 "    if @borrowedDay > @maxBorrowPeriodDay\n" +
                 "    begin\n" +
                 "        select @fine = finePerDay * @borrowedDay from Student where id = @studentId;\n" +
@@ -166,7 +169,7 @@ class BorrowService {
         return resultSet.getDouble(0);
     }
 
-    void updateFine(int studentId) throws SQLException {
+    private void updateFine(int studentId) throws SQLException {
         Statement statement = connection.createStatement();
         statement.execute("execute updateFine " + studentId);
     }
@@ -187,18 +190,20 @@ class BorrowService {
         return Book.loadFromResultSet(resultSet);
     }
 
-    Student findStudentById(int id) throws SQLException {
+    int getBorrowedNumber(int studentId) throws SQLException {
         Statement statement = connection.createStatement();
-        statement.execute("select * from Student where id = " + id);
+        statement.execute("select count(*) from BorrowRecord where studentId = " + studentId + " and returned = 0;");
         ResultSet resultSet = statement.getResultSet();
-        return Student.loadFromResultSet(resultSet).get(0);
+        resultSet.next();
+        return resultSet.getInt(1);
     }
 
-    List<BorrowRecord> findBorrowRecordByStudentId(int studentId) throws SQLException {
+    int getMaxBorrowNumber(int studentId) throws SQLException {
         Statement statement = connection.createStatement();
-        statement.execute("select * from BorrowRecord where studentId = " + studentId);
+        statement.execute("select maxBorrowNumber from Student where id = " + studentId);
         ResultSet resultSet = statement.getResultSet();
-        return BorrowRecord.loadFromResultSet(resultSet);
+        resultSet.next();
+        return resultSet.getInt(1);
     }
 
     Student addStudent(String name, String department, String major) throws SQLException {

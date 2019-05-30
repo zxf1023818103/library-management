@@ -171,10 +171,16 @@ public class Main extends Application {
                     case BorrowService.BOOK_BORROWED:
                         borrowResultLabel.setText("该图书已被借阅");
                         break;
-                    default:
+                    default: {
+                        int studentId = Integer.parseInt(borrowBookStudentIdTextField.getText());
+                        int maxBorrowNumber = borrowService.getMaxBorrowNumber(studentId);
+                        int borrowedNumber = borrowService.getBorrowedNumber(studentId);
+                        borrowedNumberLabel.setText(Integer.toString(borrowedNumber));
+                        remainingBorrowQuotaLabel.setText(Integer.toString(maxBorrowNumber - borrowedNumber));
                         borrowResultLabel.setTextFill(Color.GREEN);
                         borrowResultLabel.setText("借阅成功");
                         break;
+                    }
                 }
             } catch (SQLException e) {
                 borrowResultLabel.setText(e.getLocalizedMessage());

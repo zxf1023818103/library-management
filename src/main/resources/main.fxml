@@ -82,6 +82,11 @@
                         <PropertyValueFactory property="location"/>
                     </cellValueFactory>
                 </TableColumn>
+                <TableColumn text="是否归还">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="returned"/>
+                    </cellValueFactory>
+                </TableColumn>
             </columns>
         </TableView>
     </VBox>

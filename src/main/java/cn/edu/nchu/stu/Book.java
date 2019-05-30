@@ -23,6 +23,8 @@ public class Book {
 
     private String location;
 
+    private boolean returned;
+
     public static List<Book> loadFromResultSet(ResultSet resultSet) throws SQLException {
         List<Book> result = new ArrayList<Book>();
         while (resultSet.next()) {
@@ -35,6 +37,7 @@ public class Book {
             book.klass = resultSet.getString("klass");
             book.publicationDate = resultSet.getString("publicationDate");
             book.location = resultSet.getString("location");
+            book.returned = resultSet.getBoolean("returned");
             result.add(book);
         }
         return result;
@@ -102,5 +105,13 @@ public class Book {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public boolean isReturned() {
+        return returned;
+    }
+
+    public void setReturned(boolean returned) {
+        this.returned = returned;
     }
 }

@@ -20,7 +20,8 @@ if object_id('Book', 'u') is null
         author varchar(32) not null,
         klass varchar(128) not null,
         publicationDate date not null,
-        location varchar(32) not null
+        location varchar(32) not null,
+        returned bit not null default 1
     );
 go
 
@@ -59,6 +60,7 @@ begin
         --- 该书已借出
         return -3;
     insert into BorrowRecord (studentId, bookId) values (@studentId, @bookId);
+    update Book set returned = 0 where id = @bookId;
     return 0;
 end;
 go
@@ -88,6 +90,7 @@ begin
     select @borrowedDay = datediff(day, beginDate, getdate()) from BorrowRecord where studentId = @studentId and id = @bookId;
     select @maxBorrowPeriodDay = maxBorrowPeriodDay from Student where id = @studentId;
     update BorrowRecord set returned = 1 where bookId = @bookId and returned = 0;
+    update Book set returned = 1 where id = @bookId;
     if @borrowedDay > @maxBorrowPeriodDay
     begin
         select @fine = finePerDay * @borrowedDay from Student where id = @studentId;
